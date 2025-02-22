@@ -1,0 +1,8 @@
+# Ignorer le dossier obj
+obj/
+
+# Ignorer le dossier compiled_lib
+compiled_lib/
+
+# Ignorer le fichier errors.txt
+errors.txt
