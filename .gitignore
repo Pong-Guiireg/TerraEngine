@@ -9,3 +9,6 @@ errors.txt
 
 # Ignorer le dossier .vscode
 .vscode/
+
+# Ignorer l'exécutable
+Terraria_Engine

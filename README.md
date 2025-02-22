@@ -29,4 +29,3 @@ Après avoir installé les dépendances, vous pouvez lancer le projet avec la co
 ```bash
 ./Terraria_Engine
 ```
-```
