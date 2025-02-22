@@ -6,3 +6,6 @@ compiled_lib/
 
 # Ignorer le fichier errors.txt
 errors.txt
+
+# Ignorer le dossier .vscode
+.vscode/

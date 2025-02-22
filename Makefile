@@ -6,12 +6,13 @@
 
 # Variables
 CC = gcc
-CFLAGS = -lglfw -lGL -lm
+CFLAGS = -lglfw -lGL -lm -lglut -lGLU -lGLEW
 SRC_DIR = src
 LIB_DIR = lib
 OBJ_DIR = obj
 LIB_OUTPUT_DIR = compiled_lib
 LIB_NAME = $(LIB_OUTPUT_DIR)/compiled_lib.a
+EXECUTABLE = Terraria_Engine
 SRC = $(wildcard $(SRC_DIR)/*.c) $(wildcard $(LIB_DIR)/*.c)
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
@@ -24,7 +25,7 @@ RESET = \033[0m
 # Rules
 .PHONY: all clean fclean re
 
-all: $(OBJ) $(LIB_NAME)
+all: $(OBJ) $(LIB_NAME) $(EXECUTABLE)
 	@echo "$(BLUE)[INFO] Compilation completed successfully!$(RESET)"
 	@echo "----------------------------------------"
 
@@ -38,12 +39,15 @@ $(LIB_NAME): $(OBJ)
 	@mkdir -p $(LIB_OUTPUT_DIR)
 	ar rcs $@ $^
 
+$(EXECUTABLE): $(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)
+
 clean:
 	rm -f $(OBJ_DIR)/*.o
 	@echo "$(BLUE)[INFO] Object files deleted.$(RESET)"
 
 fclean: clean
-	rm -f $(LIB_NAME)
-	@echo "$(BLUE)[INFO] Library deleted.$(RESET)"
+	rm -f $(LIB_NAME) $(EXECUTABLE)
+	@echo "$(BLUE)[INFO] Library and executable deleted.$(RESET)"
 
 re: fclean all

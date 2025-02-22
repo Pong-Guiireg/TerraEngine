@@ -11,6 +11,8 @@
 
   #include "includes.h"
 
-  void openWindow(void);
+  GLFWwindow* openWindow(void);
+  void main_loop(GLFWwindow* window);
+  void draw_interface(void);
 
 #endif // MAIN_H

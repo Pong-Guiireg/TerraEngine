@@ -9,6 +9,10 @@
 
 int main(void)
 {
-  openWindow();
-  return 0;
+    GLFWwindow* window = openWindow();
+    if (!window) {
+        return -1;
+    }
+    main_loop(window);
+
 }
